@@ -1,5 +1,6 @@
 package hudson.plugins.cigame;
 
+import jenkins.model.Jenkins;
 import net.sf.json.JSONObject;
 
 import org.kohsuke.stapler.StaplerRequest;
@@ -9,6 +10,7 @@ import hudson.Util;
 import hudson.model.User;
 import hudson.model.UserProperty;
 import hudson.model.UserPropertyDescriptor;
+import hudson.security.Permission;
 
 /**
  * Descriptor for the {@link UserScoreProperty}.
@@ -35,10 +37,10 @@ public class UserScorePropertyDescriptor extends UserPropertyDescriptor {
      * @return a UserScoreProperty object
      */
     private UserScoreProperty newInstanceIfJSONIsNull(StaplerRequest req) throws FormException {
-        String scoreStr = Util.fixEmpty(req.getParameter("game.score")); //$NON-NLS-1$
-        if (scoreStr != null) {
-            return new UserScoreProperty(Double.parseDouble(scoreStr), req.getParameter("game.participatingInGame") != null, null); //$NON-NLS-1$
-        }
+//        String scoreStr = Util.fixEmpty(req.getParameter("game.score")); //$NON-NLS-1$
+//        if (scoreStr != null) {
+//            return new UserScoreProperty(Double.parseDouble(scoreStr), req.getParameter("game.participatingInGame") != null, null); //$NON-NLS-1$
+//        }
         return new UserScoreProperty();
     }
 
@@ -47,9 +49,9 @@ public class UserScorePropertyDescriptor extends UserPropertyDescriptor {
         if (formData == null) {
             return newInstanceIfJSONIsNull(req);
         }
-        if (formData.has("score")) { //$NON-NLS-1$
-            return req.bindJSON(UserScoreProperty.class, formData);
-        }
+//        if (formData.has("score")) { //$NON-NLS-1$
+//            return req.bindJSON(UserScoreProperty.class, formData);
+//        }
         return new UserScoreProperty();
     }
 
