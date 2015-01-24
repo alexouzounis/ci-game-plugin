@@ -4,6 +4,6 @@
 		<f:checkbox name="game.participatingInGame" checked="${h.defaultToTrue(instance.participatingInGame)}" />
 	</f:entry>
 	<f:entry title="${%User.CurrentScore}">
-		<f:textaread name="game.score" default="${instance.score}"/>
+		<f:textarea name="game.score" default="${instance.score}"/>
 	</f:entry>
 </j:jelly>
